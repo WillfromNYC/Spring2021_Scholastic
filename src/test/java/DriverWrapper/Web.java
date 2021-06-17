@@ -1,6 +1,7 @@
 package DriverWrapper;
 
 import Pages.Commands;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -8,6 +9,7 @@ public class Web extends Commands {
 
     private static WebDriver driver = null; //create variables outside method to be able to call
 
+    @Before
     public void openurl() {
         System.setProperty("webdriver.chrome.driver","C:\\Users\\Will\\Documents\\git\\Spring2021_SeleniumCucumber\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();

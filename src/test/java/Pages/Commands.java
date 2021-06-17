@@ -39,7 +39,6 @@ public class Commands {
         });
         return elements;
     }
-
     /**
      * Method to find a WebElement
      * Input: By
@@ -61,8 +60,24 @@ public class Commands {
                 return driver.findElement(locator);
             }
         });
-
         return element;
+    }
+
+    public void fluentWaitMethod(By locator, int seconds) {
+
+        Wait fWait = new FluentWait(Web.getDriver())
+                .withTimeout(Duration.ofSeconds(seconds))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(NoAlertPresentException.class)
+                .ignoring(StaleElementReferenceException.class)
+                .withMessage("Element is not found within 30 seconds");
+
+        WebElement element = (WebElement) fWait.until(new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(locator);
+            }
+        });
 
     }
 
@@ -74,14 +89,29 @@ public class Commands {
     public void clickThis(WebElement element) {
         element.click();
     }
-
     /**
      * Method to click a webElement
      * Input: By
      * Return Type: void
      */
-    public void clickThis(By locator) {
+    public WebElement clickThis(By locator) {
+
+        Wait fWait = new FluentWait(Web.getDriver())
+                .withTimeout(Duration.ofSeconds(15))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(ElementNotInteractableException.class)
+                .ignoring(NoAlertPresentException.class)
+                .ignoring(StaleElementReferenceException.class)
+                .withMessage("Element is not found within 15 seconds");
+
+        WebElement element = (WebElement) fWait.until(new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(locator);
+            }
+        });
         getElement(locator).click();
+        return element;
 
     }
 
@@ -103,8 +133,22 @@ public class Commands {
      *      String
      * Return Type: void
      */
-    public void type(By locator, String data) {
+    public WebElement type(By locator, String data) {
         getElement(locator).sendKeys(data);
+        Wait fWait = new FluentWait(Web.getDriver())
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(NoAlertPresentException.class)
+                .ignoring(StaleElementReferenceException.class)
+                .withMessage("Element is not found within 30 seconds");
+
+        WebElement element = (WebElement) fWait.until(new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(locator);
+            }
+        });
+        return element;
     }
 
     /**
@@ -275,10 +319,25 @@ public class Commands {
      * Input: By, data
      * Return type: void
      */
-    public void selectFromDropdown(By locator, String data) {
+    public WebElement selectFromDropdown(By locator, String data) {
         WebElement element = getElement(locator);
         Select dropdown = new Select(element);
         dropdown.selectByVisibleText(data);
+
+        Wait fWait = new FluentWait(Web.getDriver())
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(NoAlertPresentException.class)
+                .ignoring(StaleElementReferenceException.class)
+                .withMessage("Element is not found within 30 seconds");
+
+        element = (WebElement) fWait.until(new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(locator);
+            }
+        });
+        return element;
     }
 
     /**
