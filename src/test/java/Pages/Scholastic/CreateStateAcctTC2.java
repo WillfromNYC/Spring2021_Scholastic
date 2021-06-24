@@ -49,13 +49,17 @@ public class CreateStateAcctTC2 extends Commands {
     By clickStateNewYork = By.xpath("//li[@class='custom-option select-option']//span[contains(text(),'New York')]");
 
     By typeInCity= By.xpath("//*[@id='dwfrm_myschool_schoolcity']");
-    By clickSearchStateButton = By.xpath("//button[@id='button-search' and @name='dwfrm_myschool_searchone']");
+
+    //button[@class='button-continue']
     //By typeInCity= By.xpath("//*[@class='input-text ui-autocomplete-input valid']");
 
 
 
     By clickCityNewYork = By.xpath("//span[@class='auto-matches' and contains(text(),'New York')]");
-    By mySchoolSearchButton = By.xpath("//button[@name='dwfrm_myschool_search']");
+    //element not found: By clickSearchStateButton = By.xpath("//button[@id='button-search' and @name='dwfrm_myschool_searchone']");
+    //By clickSearchStateButton = By.name("dwfrm_myschool_search");
+    By clickSearchStateButton = By.xpath("//button[@name='dwfrm_myschool_searchone']");
+    //button[@id='button-search'][1]
 
 
 
@@ -178,9 +182,9 @@ public class CreateStateAcctTC2 extends Commands {
         clickThis(clickStateNewYork);
     }
 
-    public void clickCity(){
+    public void clickCityType(String city){
         fluentWaitMethod(typeInCity,25);
-        type(typeInCity,"New York");
+        type(typeInCity,"city");
         fluentWaitMethod(clickCityNewYork,25);
         clickThis(clickCityNewYork);
     }
@@ -194,7 +198,7 @@ public class CreateStateAcctTC2 extends Commands {
     public void schoolNameType(String schoolTypeText){
         type(schoolType,schoolTypeText);
 
-        try { Thread.sleep(7000);
+        try { Thread.sleep(3000);
         }
         catch (InterruptedException e){
             e.printStackTrace();

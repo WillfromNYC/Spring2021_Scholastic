@@ -12,8 +12,8 @@ Feature: Create Account
     When I click title and click 'Mr.' as title
     And I enter 'John' in first name
     And I enter 'Smith' in last name
-    And I enter 'jSmia11@gmail.com' in email
-    And I enter 'password123' in password
+    And I enter 'jdiazCambren2@gmail.com' in email
+    And I enter 'Heatwavefan4861' in password
     And I click on read terms checkbox
     And I click on create next button
 

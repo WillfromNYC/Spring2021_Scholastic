@@ -71,7 +71,7 @@ public class Commands {
                 .ignoring(NoSuchElementException.class)
                 .ignoring(NoAlertPresentException.class)
                 .ignoring(StaleElementReferenceException.class)
-                .withMessage("Element is not found within 30 seconds");
+                .withMessage("Element is not found within " + seconds + " seconds");
 
         WebElement element = (WebElement) fWait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
@@ -324,6 +324,7 @@ public class Commands {
         Select dropdown = new Select(element);
         dropdown.selectByVisibleText(data);
 
+
         Wait fWait = new FluentWait(Web.getDriver())
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(1))
@@ -346,10 +347,13 @@ public class Commands {
      * Return type: void
      */
     public void selectFromAutoSuggestion(By locator, String userChoice) {
+        fluentWaitMethod(locator,25);
+
         List<WebElement> allSuggestions = getElements(locator);
         for (WebElement suggestionElement : allSuggestions) {
             String suggestion = suggestionElement.getText();
-            if (suggestion.equalsIgnoreCase(userChoice)) {
+            if (suggestion.contains(userChoice)) {
+                //if (suggestion.equalsIgnoreCase(userChoice)) {
                 clickThis(suggestionElement);
                 break;
             }
@@ -460,7 +464,19 @@ public class Commands {
         Web.getDriver().switchTo().frame(index);
     }
 
+    public void clickFromMultipleLocators(By locator, String userChoice) {
+        fluentWaitMethod(locator,25);
 
+        List<WebElement> allElements = getElements(locator);
+        for (WebElement suggestionElement : allElements) {
+            String webElement = suggestionElement.getText();
+            System.out.println("here are the element text: " + suggestionElement.toString());
+            /*if (suggestion.contains(userChoice)) {
+                //if (suggestion.equalsIgnoreCase(userChoice)) {*/
+                clickThis(suggestionElement);
+                break;
+        }
+    }
 
 
 

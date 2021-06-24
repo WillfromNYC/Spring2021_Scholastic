@@ -113,7 +113,7 @@ public class CreateAccountPage extends Commands {
 
     //Scenario: User clicks on create an account link
     public void clickCreateAccount(){
-        clickThis(createAccount);
+        clickThis(createAccount );
 
         try { Thread.sleep(7000);
         }
@@ -143,12 +143,20 @@ public class CreateAccountPage extends Commands {
     //Dropdown not have select tag
 
     public void clickSelectTitleMr(){
-        clickThis(clickSelectTitle);
-        try { Thread.sleep(5000);
+        try { Thread.sleep(1000);
         }
         catch (InterruptedException e){
             e.printStackTrace();
         }
+        fluentWaitMethod(clickSelectTitle,30);
+        clickThis(clickSelectTitle);
+        try { Thread.sleep(1000);
+        }
+        catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
+        fluentWaitMethod(clickTitleMr,30);
         clickThis(clickTitleMr);
     }
 
@@ -175,6 +183,7 @@ public class CreateAccountPage extends Commands {
 
     //Scenario: User choose zip code and search for the school
     public void zipcodeType(String zipcode){
+        fluentWaitMethod(zipcodeType,15);
         type(zipcodeType,zipcode);
     }
 
@@ -213,7 +222,7 @@ public class CreateAccountPage extends Commands {
         catch (InterruptedException e){
             e.printStackTrace();
         }
-        System.out.println(SBClub.toString());
+        //works: System.out.println(SBClub.toString());
     //now to click first suggestion
     for (WebElement schoolName:SBClub) {
         schoolName.click();

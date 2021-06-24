@@ -76,13 +76,13 @@ public class createStateAcctTC2SD {
 //------------------------------------------------------
     //Scenario: User choose state and city to create new account
 
-    @When("I click on school state and click New York for state")
+    @When("I click on school state and enter New York for state")
     public void goClickState(){
         CreateStateAcctTC2.clickState();
     }
-    @And("I click on city and click New York for city")
-    public void clickCity(){
-        CreateStateAcctTC2.clickCity();
+    @And("I click on city and click '(.*)' for city")
+    public void clickCityType(String city){
+        CreateStateAcctTC2.clickCityType(city);
     }
 
     @And("I click on stateCity School search Button")
