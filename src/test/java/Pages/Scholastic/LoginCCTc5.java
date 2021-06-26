@@ -103,11 +103,11 @@ public class LoginCCTc5 extends Commands {
     By clickMonth12CC = By.xpath("//*[contains(@class, 'select-option') and @data-label='12']/span");
     By clickYear2029CC = By.xpath("//*[contains(@class, 'select-option') and @data-label='2029']/span");
 
+    By click4thAddCC = By.xpath("//*[contains(@data-tooltip-option, 'creditcarderror')]");
+    By creditCardFlyerJumper = By.xpath("//*[starts-with(@class, 'tooltipster-body')]");
 
 
     /*
-    By a = By.xpath("");
-    By a = By.xpath("");
     By a = By.xpath("");
     By a = By.xpath("");
     By a = By.xpath("");
@@ -346,6 +346,9 @@ public class LoginCCTc5 extends Commands {
         type(AddressCCBill,address);
     }
     public void zipCodeCCBill(String zipCode){
+        try { Thread.sleep(2000);        }
+        catch (InterruptedException e){
+            e.printStackTrace();}
         fluentWaitMethod(zipCodeCCBill,20);
         type(zipCodeCCBill,zipCode);
     }
@@ -426,10 +429,22 @@ public class LoginCCTc5 extends Commands {
         clickThis(By.xpath("//*[contains(@class, 'select-option') and @data-label='30']/span"));
     }
 
-    /*
-    public void (){
-        clickThis();
+    public void click4thAddCC() {
+
+        fluentWaitMethod(click4thAddCC, 20);
+        clickThis(click4thAddCC);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
+
+    public void creditCardFlyerJumper(){
+        isElementDisplayed(creditCardFlyerJumper);
+    }
+    /*
+
     public void (){
         type();
     }

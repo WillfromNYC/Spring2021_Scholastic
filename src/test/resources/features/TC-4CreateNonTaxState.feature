@@ -1,5 +1,5 @@
 Feature: Create Account
-  @TC4 @TC9
+  @TC4
   Scenario: User create new account but through Non Tax state instead of school
     Given I am on Scholastic QA website homepage
     When I click on bottom scroll create Account link
@@ -47,7 +47,7 @@ Feature: Create Account
     Then I verify the stored name matches entered name Mr. John Smith
     Then I verify the stored address matches entered address 118 E INTL AIRPORT RD
 
-    @TC9
+
     Scenario: User will add items to cart
       When I enter '100' pixel down the website
       When I click on Enter Order button

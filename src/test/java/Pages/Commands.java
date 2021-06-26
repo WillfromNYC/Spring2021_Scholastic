@@ -48,7 +48,7 @@ public class Commands {
         // return Web.getDriver().findElement(locator);
 
         Wait fWait = new FluentWait(Web.getDriver())
-                .withTimeout(Duration.ofSeconds(30))
+                .withTimeout(Duration.ofSeconds(20))
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(NoAlertPresentException.class)
@@ -61,6 +61,12 @@ public class Commands {
             }
         });
         return element;
+    }
+
+    public WebElement getCleanElement(By locator) {
+        // return
+
+        return Web.getDriver().findElement(locator);
     }
 
     public void fluentWaitMethod(By locator, int seconds) {

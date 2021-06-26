@@ -14,8 +14,6 @@ public class Login3CreditCardTC5SD {
         loginCCTc5.scrollDownLittle();
     }
 
-
-
     @When("I click sign in")
     public void goSignIn(){
         loginCCTc5.signIn();
@@ -99,7 +97,7 @@ public class Login3CreditCardTC5SD {
     public void phoneNumCCBill(String phoneNum){
         loginCCTc5.phoneNumCCBill(phoneNum);
     }
-    @And("I click save button")
+    @And("I click save CC button")
     public void clickSaveCCButton(){
         loginCCTc5.clickSaveCCButton();
     }
@@ -120,11 +118,17 @@ public class Login3CreditCardTC5SD {
     public void clickYear2030CC(){
         loginCCTc5.clickYear2030CC();
     }
-    /*
-    @And("")
-    public void (){
-        loginCCTc5.();
+    @And("I click add a CC for the 4th time")
+    public void goClick4thAddCC(){
+        loginCCTc5.click4thAddCC();
     }
+    @And("I verify credit Card Flyer Jumper appears to warn 3 credit card is the limit")
+    public void verifyCreditCardFlyerJumper(){
+        loginCCTc5.creditCardFlyerJumper();
+    }
+
+    /*
+
     @And("")
     public void (){
         loginCCTc5.();
