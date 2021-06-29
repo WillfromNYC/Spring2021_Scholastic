@@ -11,10 +11,12 @@ import org.junit.runner.RunWith;
         glue = {"StepDefinition","DriverWrapper"},//was not working before bc incorrect location it seems
         //"src\\test\\java\\StepDefinition" = not correct
 
-        tags = {"@TC9"}
-        )
+        tags = {"@TC9"},
 
 
+        plugin = {"pretty", "html:Reports/Default/"}
+
+)
 
 
 
