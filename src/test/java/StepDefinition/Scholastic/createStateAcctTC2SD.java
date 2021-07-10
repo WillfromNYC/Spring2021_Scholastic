@@ -1,104 +1,105 @@
 package StepDefinition.Scholastic;
 
-import DriverWrapper.Web;
 import Pages.Scholastic.CreateAccountPage;
+import Pages.Scholastic.CreateStateAcctTC2;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
-public class CreateAcctSD {
-    CreateAccountPage  CreateAcctPage = new CreateAccountPage();
+public class createStateAcctTC2SD {
 
-    @Given("I am on Scholastic QA website homepage")
+    CreateStateAcctTC2 CreateStateAcctTC2 = new CreateStateAcctTC2();
+
+   /* @Given("I am on Scholastic QA website homepage")
     //Scenario: User clicks on create an account link
-    public void goClickScholasticSite(){
-        CreateAcctPage.openScholasticSite();
-    }
+    *//*public void goClickScholasticSite(){
+        CreateStateAcctTC2.open();
+    }*//*
+
     @When("I click on create Account link")
     public void goClickCreateAccount(){
-        CreateAcctPage.clickCreateAccount();
+        CreateStateAcctTC2.clickCreateAccount();
     }
     @When("I click on bottom scroll create Account link")
     public void goButtomScrolltoClickCreateAcct(){
-        CreateAcctPage.buttomScrolltoClickCreateAcct();
+        CreateStateAcctTC2.buttomScrolltoClickCreateAcct();
     }
+*/
 
-
-    @And("I click on Select Teacher")
+    /*@And("I click on Select Teacher")
     public void goClickTeacherSelect(){
-        CreateAcctPage.clickTeacherSelect();
+        CreateStateAcctTC2.clickTeacherSelect();
     }
 
     @And("I click on next button")
     public void goClickNextButton(){
-        CreateAcctPage.clickNextButton();
+        CreateStateAcctTC2.clickNextButton();
     }
-
+*/
     //Filling in new account information
     /*@When("I select '(.*)' as title")
     public void goSelectTitleClick(String title){
         CreateAcctPage.selectTitleClick(title);}*/
 
-    @When("I click title and click 'Mr.' as title")
+    /*@When("I click title and click 'Mr.' as title")
     public void goClickSelectTitleMr (){
-        CreateAcctPage.clickSelectTitleMr();
+        CreateStateAcctTC2.clickSelectTitleMr();
     }
 
 
     @And("I enter '(.*)' in first name")
     public void enterFirstNameType(String firstName){
-        CreateAcctPage.firstNameType(firstName);
+        CreateStateAcctTC2.firstNameType(firstName);
     }
     @And("I enter '(.*)' in last name")
     public void enterLastNameType(String lastName){
-        CreateAcctPage.lastNameType(lastName);
+        CreateStateAcctTC2.lastNameType(lastName);
     }
     @And("I enter '(.*)' in email")
     public void enterEmailType(String email){
-        CreateAcctPage.emailType(email);
+        CreateStateAcctTC2.emailType(email);
     }
     @And("I enter '(.*)' in password")
     public void enterPassType(String password){
-        CreateAcctPage.passType(password);
+        CreateStateAcctTC2.passType(password);
     }
     @And("I click on read terms checkbox")
     public void goClickReadTerms(){
-        CreateAcctPage.clickReadTerms();
+        CreateStateAcctTC2.clickReadTerms();
     }
     @And("I click on create next button")
     public void goClickCreateNext(){
-        CreateAcctPage.clickCreateNext();
+        CreateStateAcctTC2.clickCreateNext();
+    }*/
+
+//------------------------------------------------------
+    //Scenario: User choose state and city to create new account
+
+    @When("I click on school state and enter New York for state")
+    public void goClickState(){
+        CreateStateAcctTC2.clickState();
+    }
+    @And("I click on city and click '(.*)' for city")
+    public void clickCityType(String city){
+        CreateStateAcctTC2.clickCityType(city);
+    }
+
+    @And("I click on stateCity School search Button")
+    public void clickSearchStateButton(){
+        CreateStateAcctTC2.clickSearchStateButton();
     }
 
 
-    //Scenario: User choose zip code and search for the school
-
-    @When("I enter '(.*)' in zipcode")
-    public void enterZipcodeType(String zipcode){
-        CreateAcctPage.zipcodeType(zipcode);
-    }
-    @And("I click on zip code button")
-    public void goClickZipcodeButton(){
-        CreateAcctPage.clickZipcodeButton();
-    }
-    @And("I enter '(.+)' in school Type")
-    public void enterSchoolNameType(String schoolName){
-        CreateAcctPage.schoolNameType(schoolName);
-    }
-
-
-    @And("I click 1st Scholastic Book Club link")
+    /*@And("I click 1st Scholastic Book Club link")
     public void goClickFirstSBClubLink(){
-        CreateAcctPage.clickFirstSBClubAutoSuggest();
+        CreateStateAcctTC2.clickFirstSBClubAutoSuggest();
     }
 
 
     @And("I click on School Next Button")
     public void goClickSchoolNextButton(){
-        CreateAcctPage.clickSchoolNextButton();
+        CreateStateAcctTC2.clickSchoolNextButton();
     }
 
 
@@ -106,61 +107,61 @@ public class CreateAcctSD {
     //Scenario: User choose role of your teaching level and student #
     @When("I click on select role")
     public void goClickSelectRole(){
-        CreateAcctPage.clickSelectRole();
+        CreateStateAcctTC2.clickSelectRole();
     }
     @And("I click on the Teacher Grade")
     public void goClickTeacherGrade(){
-        CreateAcctPage.clickTeacherGrade();
+        CreateStateAcctTC2.clickTeacherGrade();
     }
 
     //need to edit
     @And("I click the 1st Grade as the grade")
     public void goClickGradeAutoSuggestion(){
-        CreateAcctPage.clickAutoSuggestion();
+        CreateStateAcctTC2.clickAutoSuggestion();
     }
 
 
     @And("I enter '(.*)' in the number of student in the class")
     public void enterStudentNumType(String studentNum){
-        CreateAcctPage.studentNumType(studentNum);
+        CreateStateAcctTC2.studentNumType(studentNum);
     }
     @And("I click on the my role next button")
     public void clickMyRoleNextButton() {
-        CreateAcctPage.myRoleNextButton();
+        CreateStateAcctTC2.myRoleNextButton();
     }
 
     //Scenario:User fill in preferred Reading Level System
     @When("I click Guided Reading Level on the Preferred reading level system")
     public void goSelectGuidedReadingLevel(){
-        CreateAcctPage.selectGuidedReadingLevel();
+        CreateStateAcctTC2.selectGuidedReadingLevel();
     }
     @And("I click yes for first teaching year question")
     public void goClickFirstYearTeaching(){
-        CreateAcctPage.clickFirstYearTeaching();
+        CreateStateAcctTC2.clickFirstYearTeaching();
     }
     @And("I click continue to site")
     public void goClickContinueSiteButton(){
-        CreateAcctPage.clickContinueSiteButton();
+        CreateStateAcctTC2.clickContinueSiteButton();
     }
 
     @Then("I verify the class code text is displayed")
     public void goVerifyTextClassCode(){
-        CreateAcctPage.verifyTextClassCode();
+        CreateStateAcctTC2.verifyTextClassCode();
     }
 
     @When("I click my account and profile tab")
     public void goClickMyAccount(){
-        CreateAcctPage.clickMyAccount();
+        CreateStateAcctTC2.clickMyAccount();
     }
     @Then("I verify the stored name matches entered name (.*)")
     public void verifyNameStored(String fullName) {
-        CreateAcctPage.nameStored(fullName);
+        CreateStateAcctTC2.nameStored(fullName);
     }
     @Then("I verify the stored address matches entered address (.*)")
     public void verifyAddressStored(String address){
-        CreateAcctPage.addressStored(address);
+        CreateStateAcctTC2.addressStored(address);
     }
-
+*/
     /*
     public void (){
         CreateAcctPage.();
